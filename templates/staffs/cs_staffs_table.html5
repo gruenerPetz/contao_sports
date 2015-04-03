@@ -1,0 +1,6 @@
+
+<tr class="col_<?php echo $this->count-1; ?><?php echo $this->class; ?>">
+  <td><img src="<?php echo $this->src; ?>"<?php echo $this->imgSize; ?> alt="<?php echo $this->alt; ?>"<?php if ($this->title): ?> title="<?php echo $this->title; ?>"<?php endif; ?>></td>
+  <td><?php echo $this->lastName; ?>, <?php echo $this->firstName; ?></td>
+  <td><?php echo $this->function; ?></td>
+</tr>

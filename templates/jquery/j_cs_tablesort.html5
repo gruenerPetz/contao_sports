@@ -1,0 +1,17 @@
+
+<script>
+  (function($) {
+    $(document).ready(function() {
+      $('.mod_athletes_list .sortable').each(function(i, table) {
+        $(table).tablesorter({
+          sortList: [[2,0]],
+          headers: {
+            0: {
+              sorter: false
+            }
+          }
+        });
+      });
+    });
+  })(jQuery);
+</script>

@@ -1,0 +1,50 @@
+
+<!-- indexer::stop -->
+<div class="<?php echo $this->class; ?> block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
+
+  <?php if ($this->headline): ?>
+    <<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
+  <?php endif; ?>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Datum</th>
+        <th>Heimmannschaft</th>
+        <th>Ergebnis</th>
+        <th>Gastmannschaft</th>
+        <th>Ort</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($this->events AS $arrEvent): ?>
+      <tr>
+        <td>
+          <?php echo $arrEvent['startDate']; ?><br/>
+          <?php echo $arrEvent['startTime']; ?> Uhr
+        </td>
+        <td>
+          <img src="<?php echo $arrEvent['teamA']['src']; ?>" title="<?php echo $errEvent['teamA']['name']?>" />
+          <?php echo $arrEvent['teamA']['name']; ?>
+        </td>
+        <td>
+          <?php if($arrEvent['finish']): ?>
+          - : -
+          <?php else: ?>
+          <?php echo $arrEvent['resultTeamA']; ?> : <?php echo $arrEvent['resultTeamB']; ?>
+          <?php endif; ?>
+        </td>
+        <td>
+          <img src="<?php echo $arrEvent['teamB']['src']; ?>" title="<?php echo $errEvent['teamB']['name']?>" />
+          <?php echo $arrEvent['teamB']['name']; ?>
+        </td>
+        <td>
+          <?php echo $arrEvent['location']; ?>
+        </td>
+      </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
+
+</div>
+<!-- indexer::continue -->

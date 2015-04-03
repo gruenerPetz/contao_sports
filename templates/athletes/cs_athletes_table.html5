@@ -1,0 +1,13 @@
+
+<tr class="row_<?php echo $this->count-1; ?><?php echo $this->class; ?>">
+  <td class="col_0"><img src="<?php echo $this->src; ?>"<?php echo $this->imgSize; ?> alt="<?php echo $this->alt; ?>"<?php if ($this->title): ?> title="<?php echo $this->title; ?>"<?php endif; ?>></td>
+  <td class="col_1"><?php echo $this->lastName; ?>, <?php echo $this->firstName; ?></td>
+  <td class="col_2"><?php echo $this->number; ?></td>
+  <td class="col_3"><?php echo $this->position; ?></td>
+  <?php if (in_array('bodyWeight', $this->columns)): ?>
+  <td class="col_4"><?php echo $this->bodyWeight; ?></td>
+  <?php endif; ?>
+  <?php if (in_array('bodyHeight', $this->columns)): ?>
+  <td class="col_5"><?php echo $this->bodyHeight; ?></td>
+  <?php endif; ?>
+</tr>

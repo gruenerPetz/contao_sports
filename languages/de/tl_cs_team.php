@@ -31,6 +31,9 @@ $GLOBALS['TL_LANG']['tl_cs_team']['delete'][1] = 'Team ID %s löschen';
 $GLOBALS['TL_LANG']['tl_cs_team']['name'][0] = 'Name';
 $GLOBALS['TL_LANG']['tl_cs_team']['name'][1] = 'Hier müssen Sie den Teamnamen eingeben.';
 
+$GLOBALS['TL_LANG']['tl_cs_team']['homepage'][0] = 'Homepage';
+$GLOBALS['TL_LANG']['tl_cs_team']['homepage'][1] = 'Hier müssen Sie die URL zur Website eingeben.';
+
 $GLOBALS['TL_LANG']['tl_cs_team']['league'][0] = 'Liga';
 $GLOBALS['TL_LANG']['tl_cs_team']['league'][1] = 'Hier können Sie die Liga auswählen, in der das Team spielt.';
 

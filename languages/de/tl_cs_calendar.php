@@ -48,3 +48,6 @@ $GLOBALS['TL_LANG']['tl_cs_calendar']['league'][1] = 'Bitte wählen Sie die Liga
 
 $GLOBALS['TL_LANG']['tl_cs_calendar']['year'][0] = 'Jahr';
 $GLOBALS['TL_LANG']['tl_cs_calendar']['year'][1] = 'Bitte geben Sie das Jahr des Spielplans ein.';
+
+$GLOBALS['TL_LANG']['tl_cs_calendar']['group'][0] = 'Gruppe';
+$GLOBALS['TL_LANG']['tl_cs_calendar']['group'][1] = 'Bitte geben Sie die Gruppe an.';

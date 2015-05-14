@@ -1,0 +1,44 @@
+
+<!-- indexer::stop -->
+<div class="<?php echo $this->class; ?> contao_sports block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
+
+  <?php if ($this->headline): ?>
+    <<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
+  <?php endif; ?>
+
+
+<?php
+/*
+Vorgehen:
+- alle Teams in ein Array => ContentTable.php
+- alle Spiele in ein Array => ContentTable.php
+*/
+?>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Pos</th>
+        <th>Team</th>
+        <th>Spiele</th>
+        <th>Punkte</th>
+        <th>S-N-U</th>
+        <th>TD-Punkte</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($this->table AS $key => $arrTable): ?>
+		  <tr class="<?php (($key%2) === 0) ? print('even') : print('odd'); ?>">
+        <td><?php echo ++$key; ?></td>
+        <td><?php echo $arrTable['name']; ?></td>
+        <td><?php echo $arrTable['games']; ?></td>
+        <td><?php echo $arrTable['points_won']; ?> : <?php echo $arrTable['points_lost']; ?></td>
+        <td><?php echo $arrTable['won']; ?>-<?php echo $arrTable['lost']; ?>-<?php echo $arrTable['tie']; ?></td>
+        <td><?php echo $arrTable['score_made']; ?> : <?php echo $arrTable['score_got']; ?></td>
+      </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
+
+</div>
+<!-- indexer::continue -->

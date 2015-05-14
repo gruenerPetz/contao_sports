@@ -10,6 +10,8 @@ $GLOBALS['FE_MOD']['contao_sports']['gfl_table'] = 'ContaoSports\ModuleGflTable'
 $GLOBALS['FE_MOD']['contao_sports']['gfl_table_jugend'] = 'ContaoSports\ModuleGflTableJugend';
 $GLOBALS['FE_MOD']['contao_sports']['gfl_shorttable'] = 'ContaoSports\ModuleGflShortTable';
 
+$GLOBALS['TL_CTE']['contao_sports']['cs_table_league'] = 'ContaoSports\ContentTableLeague';
+$GLOBALS['TL_CTE']['contao_sports']['cs_table_calender'] = 'ContaoSports\ContentTableCalendar';
 
 /**
  * Back end modules

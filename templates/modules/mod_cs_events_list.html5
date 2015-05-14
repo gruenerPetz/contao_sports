@@ -10,7 +10,7 @@
 	<thead>
 		<tr>
 			<th>Datum</th>
-			<th colspan="2">Heimmannschaft</th>
+			<th colspan="2" style="text-align:right">Heimmannschaft</th>
 			<th>&nbsp;</th>
 			<th colspan="2">Gastmannschaft</th>
 			<th>Ort</th>
@@ -35,7 +35,15 @@
 				<?php echo $arrEvent['startDate']; ?><br/>
 				<?php echo $arrEvent['startTime']; ?> Uhr
 			</td>
-			<td><?php echo $arrEvent['teamA']['name']; ?></td>
+<!--			<td><?php echo $arrEvent['teamA']['name']; ?></td> -->
+			<td>
+				<?php if(empty($arrEvent['teamA']['homepage'])):
+					$link_homepage='https://www.google.com/search?q='.$arrEvent['teamA']['name']; 
+				else: 
+					$link_homepage=$arrEvent['teamA']['homepage']; 
+				endif; ?>
+				<a href="<?php echo $link_homepage; ?>" target="_blank"><?php echo $arrEvent['teamA']['name']; ?><a>
+			</td>
       <td><img src="<?php echo $arrEvent['teamA']['src']; ?>" title="<?php echo $errEvent['teamA']['name']?>" /></td>
 			<td>
         <span class="result">
@@ -47,9 +55,17 @@
         </span>
 			</td>
       <td><img src="<?php echo $arrEvent['teamB']['src']; ?>" title="<?php echo $errEvent['teamB']['name']?>" /></td>
-			<td><?php echo $arrEvent['teamB']['name']; ?></td>
+<!--			<td><?php echo $arrEvent['teamB']['name']; ?></td>-->
 			<td>
-				<?php echo $arrEvent['location']; ?>
+				<?php if(empty($arrEvent['teamB']['homepage'])):
+					$link_homepage='https://www.google.com/search?q='.$arrEvent['teamB']['name']; 
+				else: 
+					$link_homepage=$arrEvent['teamB']['homepage']; 
+				endif; ?>
+				<a href="<?php echo $link_homepage; ?>" target="_blank"><?php echo $arrEvent['teamB']['name']; ?><a>
+			</td>
+			<td>
+				<a href="http://maps.google.com/maps?daddr=<?php echo $arrEvent['location']; ?>" target="_blank"><?php echo $arrEvent['location']; ?></a>
 			</td>
 		</tr>
 		<?php endforeach; ?>

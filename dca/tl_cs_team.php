@@ -48,7 +48,7 @@ $GLOBALS['TL_DCA']['tl_cs_team'] = array
 		),
 		'label' => array
 		(
-			'fields'                  => array('team_image', 'name', 'city', 'country'),
+			'fields'                  => array('team_image', 'name', 'city', 'league:tl_cs_league.name'),
 			'showColumns'             => true,
 			'label_callback'          => array('tl_cs_team', 'getLabel')
 		),
@@ -95,7 +95,7 @@ $GLOBALS['TL_DCA']['tl_cs_team'] = array
 	// Palettes
 	'palettes' => array
 	(
-		'default'                     => '{author_legend},name,league,city,country,info,singleSRC'
+		'default'                     => '{author_legend},name,homepage,league,city,country,info,singleSRC'
 	),
 
 	// Fields
@@ -116,6 +116,14 @@ $GLOBALS['TL_DCA']['tl_cs_team'] = array
 			'sorting'                 => true,
 			'inputType'               => 'text',
 			'eval'                    => array('mandatory'=>true, 'maxlength'=>255),
+			'sql'                     => "varchar(255) NOT NULL default ''"
+		),
+		'homepage' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_cs_team']['homepage'],
+			'search'                  => true,
+			'inputType'               => 'text',
+			'eval'                    => array('rgxp'=>'url', 'mandatory'=>true, 'maxlength'=>255),
 			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
 		'league' => array

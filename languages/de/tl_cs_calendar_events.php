@@ -20,7 +20,7 @@ $GLOBALS['TL_LANG']['tl_cs_calendar_events']['author_legend'] = 'Titel & Autor';
 $GLOBALS['TL_LANG']['tl_cs_calendar_events']['details_legend'] = 'Veranstaltungsort & Datum';
 $GLOBALS['TL_LANG']['tl_cs_calendar_events']['game_legend'] = 'Spielinformationen';
 $GLOBALS['TL_LANG']['tl_cs_calendar_events']['publish_legend'] = 'Veröffentlichung';
-
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['further_information_legend'] = 'Weitere Informationen';
 
 /**
  * Fields
@@ -57,14 +57,44 @@ $GLOBALS['TL_LANG']['tl_cs_calendar_events']['startTime'][1] = 'Bitte geben Sie 
 $GLOBALS['TL_LANG']['tl_cs_calendar_events']['team_a'][0] = 'Heimmannschaft';
 $GLOBALS['TL_LANG']['tl_cs_calendar_events']['team_a'][1] = 'Bitte wählen Sie die Heimmannschaft aus.';
 
-$GLOBALS['TL_LANG']['tl_cs_calendar_events']['team_b'][0] = 'Auswärtsmannschaft';
-$GLOBALS['TL_LANG']['tl_cs_calendar_events']['team_b'][1] = 'Bitte wählen Sie die Auswärtsmannschaft aus.';
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['team_b'][0] = 'Gastmannschaft';
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['team_b'][1] = 'Bitte wählen Sie die Gastmannschaft aus.';
 
 $GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_a'][0] = 'Ergebnis Heimmannschaft';
 $GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_a'][1] = 'Bitte geben Sie das Ergebnis der Heimmannschaft ein.';
 
-$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_b'][0] = 'Ergebnis Auswärtsmannschaft';
-$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_b'][1] = 'Bitte geben Sie das Ergebnis der Auswärtsmannschaft ein.';
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_b'][0] = 'Ergebnis Gastmannschaft';
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_b'][1] = 'Bitte geben Sie das Ergebnis der Gastmannschaft ein.';
+
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['further_information'][0] = 'Weitere Informationen';
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['further_information'][1] = 'Hier können Sie weitere Informationen zum Spieltag hinterlegen.';
+
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_a_q1'][0] = '1. Quarter Heimmannschaft';
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_a_q1'][1] = 'Bitte geben Sie das Ergebnis des 1. Quarters der Heimmannschaft ein.';
+
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_a_q2'][0] = '2. Quarter Heimmannschaft';
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_a_q2'][1] = 'Bitte geben Sie das Ergebnis des 2. Quarters der Heimmannschaft ein.';
+
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_a_q3'][0] = '3. Quarter Heimmannschaft';
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_a_q3'][1] = 'Bitte geben Sie das Ergebnis des 3. Quarters der Heimmannschaft ein.';
+
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_a_q4'][0] = '4. Quarter Heimmannschaft';
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_a_q4'][1] = 'Bitte geben Sie das Ergebnis des 4. Quarters der Heimmannschaft ein.';
+
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_b_q1'][0] = '1. Quarter Gastmannschaft';
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_b_q1'][1] = 'Bitte geben Sie das Ergebnis des 1. Quarters der Gastmannschaft ein.';
+
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_b_q2'][0] = '2. Quarter Gastmannschaft';
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_b_q2'][1] = 'Bitte geben Sie das Ergebnis des 2. Quarters der Gastmannschaft ein.';
+
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_b_q3'][0] = '3. Quarter Gastmannschaft';
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_b_q3'][1] = 'Bitte geben Sie das Ergebnis des 3. Quarters der Gastmannschaft ein.';
+
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_b_q4'][0] = '4. Quarter Gastmannschaft';
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_b_q4'][1] = 'Bitte geben Sie das Ergebnis des 4. Quarters der Gastmannschaft ein.';
+
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['visitors'][0] = 'Zuschaueranzahl';
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['visitors'][1] = 'Bitte geben Sie an, wieviel Zuschauer beim Spiel waren.';
 
 $GLOBALS['TL_LANG']['tl_cs_calendar_events']['finish'][0] = 'Abgeschlossen';
 $GLOBALS['TL_LANG']['tl_cs_calendar_events']['finish'][1] = 'Bitte geben Sie an, ob das Spiel bereits abgeschlossen wurde.';

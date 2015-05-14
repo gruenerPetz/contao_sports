@@ -89,12 +89,13 @@ $GLOBALS['TL_DCA']['tl_cs_calendar_events'] = array
 	// Palettes
 	'palettes' => array
 	(
-		'__selector__'                => array('featured'),
-		'default'                     => '{author_legend},title,author,featured;{details_legend},location,startDate,startTime;{game_legend},team_a,team_b,result_team_a,result_team_b,finish;{publish_legend},published'
+		'__selector__'                => array('featured', 'further_information'),
+		'default'                     => '{author_legend},title,author,featured;{details_legend},location,startDate,startTime;{game_legend},team_a,team_b,result_team_a,result_team_b,finish;{further_information_legend},further_information;{publish_legend},published'
 	),
 	'subpalettes' => array
 	(
 		'featured'                    => 'color',
+		'further_information'		  => 'result_team_a_q1,result_team_b_q1,result_team_a_q2,result_team_b_q2,result_team_a_q3,result_team_b_q3,result_team_a_q4,result_team_b_q4,visitors'
 	),
 
 	// Fields
@@ -184,7 +185,8 @@ $GLOBALS['TL_DCA']['tl_cs_calendar_events'] = array
 		'startTime' => array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_cs_calendar_events']['startTime'],
-			'default'                 => time(),
+//			'default'                 => time(),
+			'default'                 => '15:00',
 			'filter'                  => true,
 			'sorting'                 => true,
 			'flag'                    => 8,
@@ -218,10 +220,82 @@ $GLOBALS['TL_DCA']['tl_cs_calendar_events'] = array
 		),
 		'result_team_b' => array
 		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_a'],
+			'label'                   => &$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_b'],
 			'inputType'               => 'text',
 			'eval'                    => array('rgxp'=>'digit', 'doNotCopy'=>true, 'tl_class'=>'w50'),
 			'sql'                     => "int(10) unsigned NULL"
+		),
+		'further_information' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_cs_calendar_events']['further_information'],
+			'exclude'                 => true,
+			'filter'                  => true,
+			'inputType'               => 'checkbox',
+			'eval'                    => array('submitOnChange'=>true, 'doNotCopy'=>true,'tl_class'=>'clr'),
+			'sql'                     => "char(1) NOT NULL default ''"
+		),
+		'result_team_a_q1' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_a_q1'],
+			'inputType'               => 'text',
+			'eval'                    => array('rgxp'=>'digit', 'doNotCopy'=>true, 'tl_class'=>'w50'),
+			'sql'                     => "int(2) unsigned NULL"
+		),
+		'result_team_b_q1' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_b_q1'],
+			'inputType'               => 'text',
+			'eval'                    => array('rgxp'=>'digit', 'doNotCopy'=>true, 'tl_class'=>'w50'),
+			'sql'                     => "int(2) unsigned NULL"
+		),
+		'result_team_a_q2' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_a_q2'],
+			'inputType'               => 'text',
+			'eval'                    => array('rgxp'=>'digit', 'doNotCopy'=>true, 'tl_class'=>'w50'),
+			'sql'                     => "int(2) unsigned NULL"
+		),
+		'result_team_b_q2' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_b_q2'],
+			'inputType'               => 'text',
+			'eval'                    => array('rgxp'=>'digit', 'doNotCopy'=>true, 'tl_class'=>'w50'),
+			'sql'                     => "int(2) unsigned NULL"
+		),
+		'result_team_a_q3' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_a_q3'],
+			'inputType'               => 'text',
+			'eval'                    => array('rgxp'=>'digit', 'doNotCopy'=>true, 'tl_class'=>'w50'),
+			'sql'                     => "int(2) unsigned NULL"
+		),
+		'result_team_b_q3' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_b_q3'],
+			'inputType'               => 'text',
+			'eval'                    => array('rgxp'=>'digit', 'doNotCopy'=>true, 'tl_class'=>'w50'),
+			'sql'                     => "int(2) unsigned NULL"
+		),
+		'result_team_a_q4' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_a_q4'],
+			'inputType'               => 'text',
+			'eval'                    => array('rgxp'=>'digit', 'doNotCopy'=>true, 'tl_class'=>'w50'),
+			'sql'                     => "int(2) unsigned NULL"
+		),
+		'result_team_b_q4' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_b_q4'],
+			'inputType'               => 'text',
+			'eval'                    => array('rgxp'=>'digit', 'doNotCopy'=>true, 'tl_class'=>'w50'),
+			'sql'                     => "int(2) unsigned NULL"
+		),
+		'visitors' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_cs_calendar_events']['visitors'],
+			'inputType'               => 'text',
+			'eval'                    => array('rgxp'=>'digit', 'doNotCopy'=>true, 'tl_class'=>'w50'),
+			'sql'                     => "int(5) unsigned NULL"
 		),
 		'finish' => array
 		(
@@ -289,18 +363,23 @@ class tl_cs_calendar_events extends Backend
 		$strDate = Date::parse($GLOBALS['TL_CONFIG']['dateFormat'], $arrRow['startTime']);
 		$strTime = Date::parse($GLOBALS['TL_CONFIG']['timeFormat'], $arrRow['startTime']);
 
+		if($arrRow['finish']==1)
+		{
+			$strResult = '<div  style="float: left;margin-right:220px;><span style="display:inline-block;width: 70px;"><b>Ergebnis: </b></span>'.$arrRow['result_team_a'].':'.$arrRow['result_team_b'].'<br/></div>';
+		}
+
 		return '
 <div style="margin-bottom:5px;"><b style="text-transform:uppercase;">'.$objTeamA->name.' VS '.$objTeamB->name.'</b></div>
-<div style="float: left;margin-right:20px;">
+<div style="float:left;margin-right:20px;">
 	<img src="'.$strTeamAImageURL.'" width="40" height="40" title="'.$objTeamA->name.'">
 	<img src="system/modules/contao_sports/assets/images/calendar_vs.png" width="30" height="40">
 	<img src="'.$strTeamBImageURL.'" width="40" height="40" title="'.$objTeamB->name.'">
 </div>
-<div>
+<div style="float:left;width:300px;margin-right:20px;">
 	<span style="display:inline-block;width: 70px;"><b>Datum: </b></span>'.$strDate.'<br/>
 	<span style="display:inline-block;width: 70px;"><b>Zeit: </b></span>'.$strTime.' Uhr<br/>
 	<span style="display:inline-block;width: 70px;"><b>Ort: </b></span>'.$arrRow['location'].'<br/>
-</div>' . "\n";
+</div>' . $strResult;
 	}
 
 
@@ -388,21 +467,28 @@ class tl_cs_calendar_events extends Backend
 	public function getTeams()
 	{
 		$arrTeams = array();
+		$arrLeagues = array();
 
 		if (!is_array($this->User->cs_leagues) || empty($this->User->cs_leagues))
 		{
 			/* @var $objTeams \Contao\Database\Mysqli\Result */
-			$objTeams = $this->Database->prepare('SELECT id, name FROM tl_cs_team')->execute();
+			$objTeams = $this->Database->prepare('SELECT id, name, league FROM tl_cs_team')->execute();
 		}
 		else
 		{
 			/* @var $objTeams \Contao\Database\Mysqli\Result */
-			$objTeams = $this->Database->prepare('SELECT id, name FROM tl_cs_team WHERE league IN ('.implode(',', $this->User->cs_leagues).')')->execute();
+			$objTeams = $this->Database->prepare('SELECT id, name, league FROM tl_cs_team WHERE league IN ('.implode(',', $this->User->cs_leagues).')')->execute();
+		}
+
+		$objLeagues = $this->Database->prepare('SELECT id, name FROM tl_cs_league')->execute();
+		foreach ($objLeagues->fetchAllAssoc() AS $objLeagues)
+		{
+			$arrLeagues[$objLeagues['id']] = $objLeagues['name'];
 		}
 
 		foreach ($objTeams->fetchAllAssoc() AS $objTeams)
 		{
-			$arrTeams[$objTeams['id']] = $objTeams['name'];
+			$arrTeams[$objTeams['id']] = $objTeams['name']." - ".$arrLeagues[$objTeams['league']];
 		}
 
 		return $arrTeams;

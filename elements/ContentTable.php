@@ -27,6 +27,7 @@ abstract class ContentTable extends \ContentElement
 		'games' => 0,
 		'score_made' => 0,
 		'score_got' => 0,
+		'score_diff' => 0,
 		'points_won' => 0,
 		'points_lost' => 0,
 		'won' => 0,
@@ -72,10 +73,12 @@ abstract class ContentTable extends \ContentElement
 				$arrTable[$intIdTeamA]['games']++;
 				$arrTable[$intIdTeamA]['score_made']+=$objEventModel->result_team_a;
 				$arrTable[$intIdTeamA]['score_got']+=$objEventModel->result_team_b;
+				$arrTable[$intIdTeamA]['score_diff'] = $arrTable[$intIdTeamA]['score_made'] - $arrTable[$intIdTeamA]['score_got'];
 
 				$arrTable[$intIdTeamB]['games']++;
 				$arrTable[$intIdTeamB]['score_made']+=$objEventModel->result_team_b;
 				$arrTable[$intIdTeamB]['score_got']+=$objEventModel->result_team_a;
+				$arrTable[$intIdTeamB]['score_diff'] = $arrTable[$intIdTeamB]['score_made'] - $arrTable[$intIdTeamB]['score_got'];
 
 				if ($objEventModel->result_team_a == $objEventModel->result_team_b)
 				{
@@ -90,18 +93,18 @@ abstract class ContentTable extends \ContentElement
 				else if ($objEventModel->result_team_a > $objEventModel->result_team_b)
 				{
 					$arrTable[$intIdTeamA]['won']++;
-					$arrTable[$intIdTeamA]['points_won']++;
+					$arrTable[$intIdTeamA]['points_won']+=2;
 
 					$arrTable[$intIdTeamB]['lost']++;
-					$arrTable[$intIdTeamB]['points_lost']++;
+					$arrTable[$intIdTeamB]['points_lost']+=2;
 				}
 				else
 				{
 					$arrTable[$intIdTeamA]['lost']++;
-					$arrTable[$intIdTeamA]['points_lost']++;
+					$arrTable[$intIdTeamA]['points_lost']+=2;
 
 					$arrTable[$intIdTeamB]['won']++;
-					$arrTable[$intIdTeamB]['points_won']++;
+					$arrTable[$intIdTeamB]['points_won']+=2;
 				}
 			}
 		}
@@ -117,10 +120,17 @@ abstract class ContentTable extends \ContentElement
 			$arrSort['won'][$k] = $v['won'];
 			$arrSort['lost'][$k] = $v['lost'];
 			$arrSort['tie'][$k] = $v['tie'];
+			$arrSort['score_diff'][$k] = $v['score_diff'];
 		}
 
 		// sort by event_type desc and then title asc
-		array_multisort($arrSort['won'], SORT_DESC, $arrSort['lost'], SORT_ASC, $arrSort['tie'], SORT_DESC, $arrTable);
+		array_multisort(
+			$arrSort['won'], SORT_DESC,
+			$arrSort['lost'], SORT_ASC,
+			$arrSort['tie'], SORT_DESC,
+			$arrSort['score_diff'], SORT_DESC,
+			$arrTable
+		);
 
 		$this->Template->table = $arrTable;
 	}

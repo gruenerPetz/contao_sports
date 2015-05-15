@@ -14,8 +14,8 @@ $GLOBALS['TL_LANG']['tl_cs_calendar_events']['new'][0] = 'Neues Event';
 $GLOBALS['TL_LANG']['tl_cs_calendar_events']['new'][1] = 'Ein neues Event erstellen';
 
 /**
-* legends
-*/
+ * legends
+ */
 $GLOBALS['TL_LANG']['tl_cs_calendar_events']['author_legend'] = 'Titel & Autor';
 $GLOBALS['TL_LANG']['tl_cs_calendar_events']['details_legend'] = 'Veranstaltungsort & Datum';
 $GLOBALS['TL_LANG']['tl_cs_calendar_events']['game_legend'] = 'Spielinformationen';
@@ -25,7 +25,6 @@ $GLOBALS['TL_LANG']['tl_cs_calendar_events']['further_information_legend'] = 'We
 /**
  * Fields
  */
-
 $GLOBALS['TL_LANG']['tl_cs_calendar_events']['title'][0] = 'Titel';
 $GLOBALS['TL_LANG']['tl_cs_calendar_events']['title'][1] = 'Bitte geben Sie den Event-Titel ein.';
 
@@ -66,8 +65,8 @@ $GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_a'][1] = 'Bitte geben 
 $GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_b'][0] = 'Ergebnis Gastmannschaft';
 $GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_b'][1] = 'Bitte geben Sie das Ergebnis der Gastmannschaft ein.';
 
-$GLOBALS['TL_LANG']['tl_cs_calendar_events']['further_information'][0] = 'Weitere Informationen';
-$GLOBALS['TL_LANG']['tl_cs_calendar_events']['further_information'][1] = 'Hier können Sie weitere Informationen zum Spieltag hinterlegen.';
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['further_information'][0] = 'Weitere Informationen zum Spieltag (Quarterstände, Zuschauerzahlen).';
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['further_information'][1] = 'Hier können Sie weitere Informationen wie z.B. Quarterstände oder Zuschauerzahlen zum Spieltag hinterlegen.';
 
 $GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_a_q1'][0] = '1. Quarter Heimmannschaft';
 $GLOBALS['TL_LANG']['tl_cs_calendar_events']['result_team_a_q1'][1] = 'Bitte geben Sie das Ergebnis des 1. Quarters der Heimmannschaft ein.';

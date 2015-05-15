@@ -24,6 +24,9 @@ abstract class ContentTable extends \ContentElement
 	protected $arrTeam = array(
 		'id' => NULL,
 		'name' => NULL,
+		'games' => 0,
+		'score_made' => 0,
+		'score_got' => 0,
 		'points_won' => 0,
 		'points_lost' => 0,
 		'won' => 0,
@@ -64,39 +67,42 @@ abstract class ContentTable extends \ContentElement
 				$arrTable[$intIdTeamB]['name'] = $objEventModel->team_b_name;
 			}
 
-			$arrTable[$intIdTeamA]['games']++;
-			$arrTable[$intIdTeamA]['score_made']+=$objEventModel->result_team_a;
-			$arrTable[$intIdTeamA]['score_got']+=$objEventModel->result_team_b;
-
-			$arrTable[$intIdTeamB]['games']++;
-			$arrTable[$intIdTeamB]['score_made']+=$objEventModel->result_team_b;
-			$arrTable[$intIdTeamB]['score_got']+=$objEventModel->result_team_a;
-
-			if ($objEventModel->result_team_a == $objEventModel->result_team_b)
+			if ($objEventModel->finish == 1)
 			{
-				$arrTable[$intIdTeamA]['tie']++;
-				$arrTable[$intIdTeamA]['points_won']++;
-				$arrTable[$intIdTeamA]['points_lost']++;
+				$arrTable[$intIdTeamA]['games']++;
+				$arrTable[$intIdTeamA]['score_made']+=$objEventModel->result_team_a;
+				$arrTable[$intIdTeamA]['score_got']+=$objEventModel->result_team_b;
 
-				$arrTable[$intIdTeamB]['tie']++;
-				$arrTable[$intIdTeamB]['points_won']++;
-				$arrTable[$intIdTeamB]['points_lost']++;
-			}
-			else if ($objEventModel->result_team_a > $objEventModel->result_team_b)
-			{
-				$arrTable[$intIdTeamA]['won']++;
-				$arrTable[$intIdTeamA]['points_won']++;
+				$arrTable[$intIdTeamB]['games']++;
+				$arrTable[$intIdTeamB]['score_made']+=$objEventModel->result_team_b;
+				$arrTable[$intIdTeamB]['score_got']+=$objEventModel->result_team_a;
 
-				$arrTable[$intIdTeamB]['lost']++;
-				$arrTable[$intIdTeamB]['points_lost']++;
-			}
-			else
-			{
-				$arrTable[$intIdTeamA]['lost']++;
-				$arrTable[$intIdTeamA]['points_lost']++;
+				if ($objEventModel->result_team_a == $objEventModel->result_team_b)
+				{
+					$arrTable[$intIdTeamA]['tie']++;
+					$arrTable[$intIdTeamA]['points_won']++;
+					$arrTable[$intIdTeamA]['points_lost']++;
 
-				$arrTable[$intIdTeamB]['won']++;
-				$arrTable[$intIdTeamB]['points_won']++;
+					$arrTable[$intIdTeamB]['tie']++;
+					$arrTable[$intIdTeamB]['points_won']++;
+					$arrTable[$intIdTeamB]['points_lost']++;
+				}
+				else if ($objEventModel->result_team_a > $objEventModel->result_team_b)
+				{
+					$arrTable[$intIdTeamA]['won']++;
+					$arrTable[$intIdTeamA]['points_won']++;
+
+					$arrTable[$intIdTeamB]['lost']++;
+					$arrTable[$intIdTeamB]['points_lost']++;
+				}
+				else
+				{
+					$arrTable[$intIdTeamA]['lost']++;
+					$arrTable[$intIdTeamA]['points_lost']++;
+
+					$arrTable[$intIdTeamB]['won']++;
+					$arrTable[$intIdTeamB]['points_won']++;
+				}
 			}
 		}
 

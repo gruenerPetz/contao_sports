@@ -20,7 +20,7 @@ $GLOBALS['TL_LANG']['tl_cs_calendar_events']['author_legend'] = 'Titel & Autor';
 $GLOBALS['TL_LANG']['tl_cs_calendar_events']['details_legend'] = 'Veranstaltungsort & Datum';
 $GLOBALS['TL_LANG']['tl_cs_calendar_events']['game_legend'] = 'Spielinformationen';
 $GLOBALS['TL_LANG']['tl_cs_calendar_events']['publish_legend'] = 'Veröffentlichung';
-$GLOBALS['TL_LANG']['tl_cs_calendar_events']['further_information_legend'] = 'Weitere Informationen';
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['further_information_legend'] = 'Weitere Informationen zum Spieltag (Quarterstände, Zuschauerzahlen).';
 
 /**
  * Fields

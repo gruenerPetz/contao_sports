@@ -123,7 +123,7 @@ $GLOBALS['TL_DCA']['tl_cs_team'] = array
 			'label'                   => &$GLOBALS['TL_LANG']['tl_cs_team']['homepage'],
 			'search'                  => true,
 			'inputType'               => 'text',
-			'eval'                    => array('rgxp'=>'url', 'mandatory'=>true, 'maxlength'=>255),
+			'eval'                    => array('rgxp'=>'url', 'maxlength'=>255),
 			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
 		'league' => array
@@ -141,7 +141,7 @@ $GLOBALS['TL_DCA']['tl_cs_team'] = array
 			'label'                   => &$GLOBALS['TL_LANG']['tl_cs_team']['city'],
 			'search'                  => true,
 			'inputType'               => 'text',
-			'eval'                    => array('mandatory'=>true, 'maxlength'=>255),
+			'eval'                    => array('maxlength'=>255),
 			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
 		'country' => array

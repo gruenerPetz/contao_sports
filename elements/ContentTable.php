@@ -12,7 +12,9 @@
 
 namespace ContaoSports;
 
-abstract class ContentTable extends \ContentElement
+use Contao\ContentElement;
+
+abstract class ContentTable extends ContentElement
 {
 	/**
 	 * Template
@@ -49,6 +51,7 @@ abstract class ContentTable extends \ContentElement
 
 		$arrTable = array();
 
+		/* @var $objEventModel \ContaoSports\CsCalendarEventsModel */
 		foreach($objEventsCollection AS $objEventModel)
 		{
 			$intIdTeamA = $objEventModel->team_a;

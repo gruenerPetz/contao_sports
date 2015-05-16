@@ -12,31 +12,39 @@
 
 namespace ContaoSports;
 
+use Contao\Module;
 use Contao\Model\Collection;
 
-class ContentCalendar extends \ContentElement
+class ContentEvents extends Module
 {
+
 	/**
 	 * Template
 	 * @var string
 	 */
-	protected $strTemplate = 'ce_cs_calendar';
+	protected $strTemplate = 'mod_cs_events_list';
 
 
 	/**
-	 * Generate the content element
+	 * Generate the module
 	 */
 	protected function compile()
 	{
-		$objEvents= \CsCalendarEventsModel::findBy('pid', $this->cs_calendar, array(
-			'order' => ($this->cs_calendar_sorting === 'startTime_desc') ? 'startTime DESC' : 'startTime ASC'
+		$objEvents= CsCalendarEventsModel::findBy(array('pid=? AND published=1'), $this->cs_calendar, array(
+			'order' => 'startTime ASC'
 		));
 
 		$arrResult = array();
 
-		while ($objEvents->next())
+		if ($objEvents)
 		{
-			$arrResult[] = $this->parseEvent($objEvents);
+			$intHeaderCount = 0;
+
+			while ($objEvents->next())
+			{
+				$arrResult[] = $this->parseEvent($objEvents, (($intHeaderCount%2) === 0) ? 'even' : 'odd');
+				$intHeaderCount++;
+			}
 		}
 
 		$this->Template->events = $arrResult;
@@ -47,10 +55,11 @@ class ContentCalendar extends \ContentElement
 	 * @param Collection $objEvents
 	 * @return array
 	 */
-	protected function parseEvent(Collection $objEvents)
+	protected function parseEvent(Collection $objEvents, $strClass)
 	{
 		$arrEvent = array(
 			'title' => $objEvents->title,
+			'class' => ($objEvents->color !== '') ? $objEvents->color . ' ' . $strClass : $strClass,
 			'featured' => (bool) $objEvents->featured,
 			'startDate' => \Date::parse($GLOBALS['TL_CONFIG']['dateFormat'], $objEvents->startDate),
 			'startTime' => \Date::parse($GLOBALS['TL_CONFIG']['timeFormat'], $objEvents->startTime),
@@ -68,7 +77,7 @@ class ContentCalendar extends \ContentElement
 
 	protected function parseTeamByPk($varPk)
 	{
-		$objTeam = \CsTeamModel::findByPk($varPk);
+		$objTeam = CsTeamModel::findByPk($varPk);
 
 		$arrResult = array(
 			'name' => $objTeam->name,
@@ -83,8 +92,7 @@ class ContentCalendar extends \ContentElement
 
 			if (is_file(TL_ROOT . '/' . $objModel->path))
 			{
-				$arrSize = deserialize($this->size);
-				$arrResult['src'] = \Image::get($objModel->path, $arrSize[0], $arrSize[1], $arrSize[2]);
+				$arrResult['src'] = \Image::get($objModel->path, 40, 40, 'center center');
 			}
 
 		}

@@ -10,7 +10,13 @@
  * @license LGPL-3.0+
  */
 
-class CsStaffModel extends \Model
+namespace ContaoSports;
+
+use Model;
+use Model\Collection;
+use Database;
+
+class CsStaffModel extends Model
 {
 	/**
 	 * Table name
@@ -19,12 +25,12 @@ class CsStaffModel extends \Model
 	protected static $strTable = 'tl_cs_staff';
 
 
-	public static function findByTeamIdAndPosition($strTeamId, $strPosition, $intLimit=0, $intOffset=0, array $arrOptions=array())
+	public static function findByTeamIdAndPosition($strTeamId, $strPosition)
 	{
 		/* @var $objResult \Contao\Database\Mysql\Result */
-		$objResult = \Database::getInstance()->prepare('SELECT * FROM tl_cs_staff WHERE pid = ? AND position = ? ORDER BY lastName')
+		$objResult = Database::getInstance()->prepare('SELECT * FROM tl_cs_staff WHERE pid = ? AND position = ? ORDER BY lastName')
 			->execute($strTeamId, $strPosition);
 
-		return \Model\Collection::createFromDbResult($objResult, static::$strTable);
+		return Collection::createFromDbResult($objResult, static::$strTable);
 	}
 }

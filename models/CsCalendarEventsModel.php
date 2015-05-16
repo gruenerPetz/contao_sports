@@ -10,7 +10,11 @@
  * @license LGPL-3.0+
  */
 
-class CsCalendarEventsModel extends \Model
+namespace ContaoSports;
+
+use Model;
+
+class CsCalendarEventsModel extends Model
 {
 	/**
 	 * Table name

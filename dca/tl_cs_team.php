@@ -12,8 +12,6 @@
 
 $GLOBALS['TL_DCA']['tl_cs_team'] = array
 (
-
-	// Config
 	'config' => array
 	(
 		'dataContainer'               => 'Table',
@@ -35,8 +33,6 @@ $GLOBALS['TL_DCA']['tl_cs_team'] = array
 			)
 		)
 	),
-
-	// List
 	'list' => array
 	(
 		'sorting' => array

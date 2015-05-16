@@ -12,6 +12,9 @@
 
 namespace ContaoSports;
 
+use Contao\Database;
+use Contao\Model\Collection;
+
 class ContentTableLeague extends ContentTable
 {
 	/**
@@ -20,7 +23,7 @@ class ContentTableLeague extends ContentTable
 	protected function getEventsCollection()
 	{
 		/* @var $objResult \Contao\Database\Mysql\Result */
-		$objResult = \Database::getInstance()->prepare('
+		$objResult = Database::getInstance()->prepare('
 			SELECT ce.*, t1.name AS team_a_name, t2.name AS team_b_name FROM tl_cs_calendar AS c
 			LEFT JOIN tl_cs_calendar_events AS ce ON c.id = ce.pid
 			LEFT JOIN tl_cs_team AS t1 ON ce.team_a = t1.id
@@ -28,6 +31,6 @@ class ContentTableLeague extends ContentTable
 			WHERE c.league = ? AND c.year = ?
 		')->execute($this->cs_table_league, $this->cs_table_year);
 
-		return \Model\Collection::createFromDbResult($objResult, 'tl_cs_calendar_events');
+		return Collection::createFromDbResult($objResult, 'tl_cs_calendar_events');
 	}
 }

@@ -10,7 +10,11 @@
  * @license LGPL-3.0+
  */
 
-class CsTeamModel extends \Model
+namespace ContaoSports;
+
+use Model;
+
+class CsTeamModel extends Model
 {
 	/**
 	 * Table name

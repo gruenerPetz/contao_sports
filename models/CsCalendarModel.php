@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Contao Open Source CMS
  *
@@ -10,7 +9,11 @@
  * @license LGPL-3.0+
  */
 
-class CsCalendarModel extends \Model
+namespace ContaoSports;
+
+use Model;
+
+class CsCalendarModel extends Model
 {
 	/**
 	 * Table name

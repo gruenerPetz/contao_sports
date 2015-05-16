@@ -12,16 +12,17 @@
 
 namespace ContaoSports;
 
+use Contao\ContentElement;
 use Contao\Model\Collection;
 
-class ModuleEvents extends \Module
+class ModuleEvents extends ContentElement
 {
 
 	/**
 	 * Template
 	 * @var string
 	 */
-	protected $strTemplate = 'mod_cs_events_list';
+	protected $strTemplate = 'ce_cs_events_list';
 
 
 	/**
@@ -29,7 +30,7 @@ class ModuleEvents extends \Module
 	 */
 	protected function compile()
 	{
-		$objEvents= \CsCalendarEventsModel::findBy(array('pid=? AND published=1'), $this->cs_calendar, array(
+		$objEvents= CsCalendarEventsModel::findBy(array('pid=? AND published=1'), $this->cs_calendar, array(
 			'order' => 'startTime ASC'
 		));
 
@@ -76,7 +77,7 @@ class ModuleEvents extends \Module
 
 	protected function parseTeamByPk($varPk)
 	{
-		$objTeam = \CsTeamModel::findByPk($varPk);
+		$objTeam = CsTeamModel::findByPk($varPk);
 
 		$arrResult = array(
 			'name' => $objTeam->name,

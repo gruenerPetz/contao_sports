@@ -77,19 +77,10 @@ $GLOBALS['TL_DCA']['tl_cs_calendar'] = array
 			),
 		)
 	),
-
-	// Palettes
 	'palettes' => array
 	(
-//		'__selector__'                => array('addReply'),
 		'default'                     => '{author_legend},title,alias,author;{game_legend}, league, year, leaguegroup'
 	),
-
-//	// Subpalettes
-//	'subpalettes' => array
-//	(
-//		'addReply'                    => 'author,reply'
-//	),
 	'fields' => array
 	(
 		'id' => array

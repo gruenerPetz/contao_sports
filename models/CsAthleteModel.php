@@ -10,6 +10,11 @@
  * @license LGPL-3.0+
  */
 
+namespace ContaoSports;
+
+use Database;
+use Model\Collection;
+
 class CsAthleteModel extends \Model
 {
 	/**
@@ -20,15 +25,15 @@ class CsAthleteModel extends \Model
 	protected static $strTable = 'tl_cs_athlete';
 
 
-	public static function findByTeamId($strTeamId, $intLimit=0, $intOffset=0, array $arrOptions=array())
+	public static function findByTeamId($strTeamId)
 	{
 		/* @var $objResult \Contao\Database\Mysql\Result */
-		$objResult = \Database::getInstance()->prepare(
+		$objResult = Database::getInstance()->prepare(
 			'SELECT *  FROM tl_cs_athlete AS a '.
 			'WHERE a.pid = ? '.
 			'ORDER BY a.number ASC, a.lastName'
 		)->execute($strTeamId);
 
-		return \Model\Collection::createFromDbResult($objResult, static::$strTable);
+		return Collection::createFromDbResult($objResult, static::$strTable);
 	}
 }

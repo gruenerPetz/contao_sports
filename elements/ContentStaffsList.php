@@ -12,17 +12,15 @@
 
 namespace ContaoSports;
 
-use Contao\Module;
-use Contao\Model\Collection;
+use Contao\ContentElement;
 
-class ModuleStaffsList extends Module
+class ContentStaffsList extends ContentElement
 {
-
 	/**
 	 * Template
 	 * @var string
 	 */
-	protected $strTemplate = 'mod_cs_staffs_list';
+	protected $strTemplate = 'ce_cs_staffs_list';
 
 
 	/**

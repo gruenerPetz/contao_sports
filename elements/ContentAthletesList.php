@@ -12,19 +12,19 @@
 
 namespace ContaoSports;
 
-use Contao\Module;
+use Contao\ContentElement;
 
-class ModuleAthletesList extends Module
+class ContentAthletesList extends ContentElement
 {
 	/**
 	 * Template
 	 * @var string
 	 */
-	protected $strTemplate = 'mod_cs_athletes_list';
+	protected $strTemplate = 'ce_cs_athletes_list';
 
 
 	/**
-	 * Generate the module
+	 * Generate the content element
 	 */
 	protected function compile()
 	{
@@ -48,8 +48,10 @@ class ModuleAthletesList extends Module
 		}
 		else
 		{
+			$arrColumns = deserialize($this->cs_team_columns);
+
 			$this->Template->athletes = $this->parseAthletes($objAthletes);
-			$this->Template->columns = deserialize($this->cs_team_columns);
+			$this->Template->columns = $arrColumns ? $arrColumns : array();
 		}
 	}
 
@@ -101,10 +103,12 @@ class ModuleAthletesList extends Module
 		$objTemplate = new \FrontendTemplate('cs_athletes_table');
 		$objTemplate->setData($arrAthlete);
 
+		$arrColumns = deserialize($this->cs_team_columns);
+
 		$objTemplate->class = (($objAthletes->cssClass != '') ? ' ' . $objAthletes->cssClass : '') . $strClass;
 		$objTemplate->count = $intCount;
 		$objTemplate->text = '';
-		$objTemplate->columns = deserialize($this->cs_team_columns);
+		$objTemplate->columns = $arrColumns ? $arrColumns : array();
 
 		$objTemplate->addImage = false;
 
@@ -122,13 +126,13 @@ class ModuleAthletesList extends Module
 			$arrAthlete['singleSRC'] = 'system/modules/contao_sports/assets/images/athlete_no_image_raw.png';
 		}
 
-		if ($this->imgSize != '')
+		if ($this->size != '')
 		{
-			$size = deserialize($this->imgSize);
+			$size = deserialize($this->size);
 
 			if ($size[0] > 0 || $size[1] > 0)
 			{
-				$arrAthlete['size'] = $this->imgSize;
+				$arrAthlete['size'] = $this->size;
 			}
 		}
 

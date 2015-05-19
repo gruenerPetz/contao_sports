@@ -18,7 +18,7 @@ use Contao\Model\Collection;
 class ContentTableLeague extends ContentTable
 {
 	/**
-	 * @return \Model\Collection
+	 * @return \Contao\Model\Collection
 	 */
 	protected function getEventsCollection()
 	{
@@ -29,7 +29,7 @@ class ContentTableLeague extends ContentTable
 			LEFT JOIN tl_cs_team AS t1 ON ce.team_a = t1.id
 			LEFT JOIN tl_cs_team AS t2 ON ce.team_b = t2.id
 			WHERE c.league = ? AND c.year = ?
-		')->execute($this->cs_table_league, $this->cs_table_year);
+		')->execute($this->cs_league, $this->cs_year);
 
 		return Collection::createFromDbResult($objResult, 'tl_cs_calendar_events');
 	}

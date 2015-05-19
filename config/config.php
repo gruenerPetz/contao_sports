@@ -14,10 +14,11 @@ $GLOBALS['FE_MOD']['contao_sports']['gfl_shorttable'] = 'ContaoSports\ModuleGflS
  * Content elements
  */
 $GLOBALS['TL_CTE']['contao_sports']['cs_athletes_list'] = 'ContaoSports\ContentAthletesList';
+$GLOBALS['TL_CTE']['contao_sports']['cs_events_calendar'] = 'ContaoSports\ContentEventsCalendar';
+$GLOBALS['TL_CTE']['contao_sports']['cs_events_league'] = 'ContaoSports\ContentEventsLeague';
 $GLOBALS['TL_CTE']['contao_sports']['cs_staffs_list'] = 'ContaoSports\ContentStaffsList';
-$GLOBALS['TL_CTE']['contao_sports']['cs_events'] = 'ContaoSports\ContentEvents';
+$GLOBALS['TL_CTE']['contao_sports']['cs_table_calendar'] = 'ContaoSports\ContentTableCalendar';
 $GLOBALS['TL_CTE']['contao_sports']['cs_table_league'] = 'ContaoSports\ContentTableLeague';
-$GLOBALS['TL_CTE']['contao_sports']['cs_table_calender'] = 'ContaoSports\ContentTableCalendar';
 
 /**
  * Back end modules

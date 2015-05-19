@@ -12,17 +12,22 @@
 
 namespace ContaoSports;
 
-use Contao\Module;
+use Contao\ContentElement;
 use Contao\Model\Collection;
 
-class ContentEvents extends Module
+abstract class ContentEvents extends ContentElement
 {
-
 	/**
 	 * Template
 	 * @var string
 	 */
-	protected $strTemplate = 'mod_cs_events_list';
+	protected $strTemplate = 'ce_cs_events_list';
+
+
+	/**
+	 * @return \Contao\Model\Collection
+	 */
+	abstract protected function getEventsCollection();
 
 
 	/**
@@ -30,19 +35,17 @@ class ContentEvents extends Module
 	 */
 	protected function compile()
 	{
-		$objEvents= CsCalendarEventsModel::findBy(array('pid=? AND published=1'), $this->cs_calendar, array(
-			'order' => 'startTime ASC'
-		));
+		$objEventsCollection = $this->getEventsCollection();
 
 		$arrResult = array();
 
-		if ($objEvents)
+		if ($objEventsCollection)
 		{
 			$intHeaderCount = 0;
 
-			while ($objEvents->next())
+			while ($objEventsCollection->next())
 			{
-				$arrResult[] = $this->parseEvent($objEvents, (($intHeaderCount%2) === 0) ? 'even' : 'odd');
+				$arrResult[] = $this->parseEvent($objEventsCollection, (($intHeaderCount%2) === 0) ? 'even' : 'odd');
 				$intHeaderCount++;
 			}
 		}
@@ -55,20 +58,20 @@ class ContentEvents extends Module
 	 * @param Collection $objEvents
 	 * @return array
 	 */
-	protected function parseEvent(Collection $objEvents, $strClass)
+	protected function parseEvent(Collection $objEventsCollection, $strClass)
 	{
 		$arrEvent = array(
-			'title' => $objEvents->title,
-			'class' => ($objEvents->color !== '') ? $objEvents->color . ' ' . $strClass : $strClass,
-			'featured' => (bool) $objEvents->featured,
-			'startDate' => \Date::parse($GLOBALS['TL_CONFIG']['dateFormat'], $objEvents->startDate),
-			'startTime' => \Date::parse($GLOBALS['TL_CONFIG']['timeFormat'], $objEvents->startTime),
-			'location' => $objEvents->location,
-			'teamA' => $this->parseTeamByPk($objEvents->team_a),
-			'teamB' => $this->parseTeamByPk($objEvents->team_b),
-			'resultTeamA' => $objEvents->result_team_a,
-			'resultTeamB' => $objEvents->result_team_b,
-			'finish' => (bool) $objEvents->finish,
+			'title' => $objEventsCollection->title,
+			'class' => ($objEventsCollection->color !== '') ? $objEventsCollection->color . ' ' . $strClass : $strClass,
+			'featured' => (bool) $objEventsCollection->featured,
+			'startDate' => \Date::parse($GLOBALS['TL_CONFIG']['dateFormat'], $objEventsCollection->startDate),
+			'startTime' => \Date::parse($GLOBALS['TL_CONFIG']['timeFormat'], $objEventsCollection->startTime),
+			'location' => $objEventsCollection->location,
+			'teamA' => $this->parseTeamByPk($objEventsCollection->team_a),
+			'teamB' => $this->parseTeamByPk($objEventsCollection->team_b),
+			'resultTeamA' => $objEventsCollection->result_team_a,
+			'resultTeamB' => $objEventsCollection->result_team_b,
+			'finish' => (bool) $objEventsCollection->finish,
 		);
 
 		return $arrEvent;

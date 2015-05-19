@@ -79,7 +79,7 @@ $GLOBALS['TL_DCA']['tl_cs_calendar'] = array
 	),
 	'palettes' => array
 	(
-		'default'                     => '{author_legend},title,alias,author;{game_legend}, league, year, leaguegroup'
+		'default'                     => '{author_legend},title,alias,author;{game_legend}, league, year'
 	),
 	'fields' => array
 	(
@@ -143,14 +143,6 @@ $GLOBALS['TL_DCA']['tl_cs_calendar'] = array
 			'inputType'               => 'text',
 			'eval'                    => array('maxlength' => 4, 'minlength' => 4, 'rgxp'=>'digit', 'mandatory'=>true, 'doNotCopy'=>true, 'tl_class'=>'w50'),
 			'sql'                     => "int(4) unsigned NULL"
-		),
-		'leaguegroup' => array
-		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_cs_calendar']['group'],
-			'filter'                  => true,
-			'inputType'               => 'text',
-			'eval'                    => array('maxlength' => 10, 'doNotCopy'=>true, 'tl_class'=>'w50'),
-			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
 	),
 );

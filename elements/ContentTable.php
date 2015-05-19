@@ -38,6 +38,9 @@ abstract class ContentTable extends ContentElement
 	);
 
 
+	/**
+	 * @return \Contao\Model\Collection
+	 */
 	abstract protected function getEventsCollection();
 
 
@@ -116,7 +119,12 @@ abstract class ContentTable extends ContentElement
 		 * http://stackoverflow.com/questions/3232965/sort-multidimensional-array-by-multiple-keys?answertab=votes#tab-top
 		 * get a list of sort columns and their data to pass to array_multisort
 		 */
-		$arrSort = array();
+		$arrSort = array(
+			'won' => array(),
+			'lost' => array(),
+			'tie' => array(),
+			'score_diff' => array(),
+		);
 
 		foreach($arrTable as $k => $v)
 		{

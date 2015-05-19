@@ -1,16 +1,6 @@
 <?php
 
 /**
- * Front end modules
- */
-$GLOBALS['FE_MOD']['contao_sports']['staffs_list'] = 'ContaoSports\ModuleStaffsList';
-$GLOBALS['FE_MOD']['contao_sports']['athletes_list'] = 'ContaoSports\ModuleAthletesList';
-$GLOBALS['FE_MOD']['contao_sports']['events_list'] = 'ContaoSports\ModuleEvents';
-$GLOBALS['FE_MOD']['contao_sports']['gfl_table'] = 'ContaoSports\ModuleGflTable';
-$GLOBALS['FE_MOD']['contao_sports']['gfl_table_jugend'] = 'ContaoSports\ModuleGflTableJugend';
-$GLOBALS['FE_MOD']['contao_sports']['gfl_shorttable'] = 'ContaoSports\ModuleGflShortTable';
-
-/**
  * Content elements
  */
 $GLOBALS['TL_CTE']['contao_sports']['cs_athletes_list'] = 'ContaoSports\ContentAthletesList';

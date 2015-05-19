@@ -13,12 +13,12 @@
 /**
  * Add palettes to tl_module
  */
-$GLOBALS['TL_DCA']['tl_content']['palettes']['cs_athletes_list']   = '{type_legend},type,headline;{cs_athletes_legend},cs_team,cs_team_columns;{image_legend},size;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['cs_athletes_list']   = '{type_legend},type,headline;{cs_athlete_legend},cs_team,cs_team_columns;{image_legend},size;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['cs_events_calendar'] = '{type_legend},type,headline;{cs_events_legend},cs_calendar;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
 $GLOBALS['TL_DCA']['tl_content']['palettes']['cs_events_league']   = '{type_legend},type,headline;{cs_events_legend},cs_league,cs_year;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
-$GLOBALS['TL_DCA']['tl_content']['palettes']['cs_staffs_list']     = '{type_legend},type,headline;{cs_staffs_legend},cs_team,cs_staff_position;{image_legend},size;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
-$GLOBALS['TL_DCA']['tl_content']['palettes']['cs_table_calendar']  = '{type_legend},type,headline;{cs_calendar_legend},cs_calendar;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
-$GLOBALS['TL_DCA']['tl_content']['palettes']['cs_table_league']    = '{type_legend},type,headline;{cs_league_legend},cs_league,cs_year;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['cs_staffs_list']     = '{type_legend},type,headline;{cs_staff_legend},cs_team,cs_staff_position;{image_legend},size;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['cs_table_calendar']  = '{type_legend},type,headline;{cs_table_legend},cs_calendar;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['cs_table_league']    = '{type_legend},type,headline;{cs_table_legend},cs_league,cs_year;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop';
 
 
 /**
@@ -71,7 +71,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['cs_league'] = array
 	'inputType'               => 'select',
 	'foreignKey'              => 'tl_cs_league.name',
 	'sql'                     => "int(10) unsigned NOT NULL default '0'",
-	'eval'                    => array('mandatory'=>true),
+	'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50'),
 );
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['cs_year'] = array
@@ -80,7 +80,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['cs_year'] = array
 	'default'                 => date('Y'),
 	'filter'                  => true,
 	'inputType'               => 'text',
-	'eval'                    => array('maxlength' => 4, 'minlength' => 4, 'rgxp'=>'digit', 'mandatory'=>true, 'doNotCopy'=>true, 'tl_class'=>'w50'),
+	'eval'                    => array('maxlength' => 4, 'minlength' => 4, 'rgxp'=>'digit', 'mandatory'=>true, 'tl_class'=>'w50'),
 	'sql'                     => "int(4) unsigned NULL"
 );
 

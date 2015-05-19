@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * This is the language file (de) for tl_modules.
+ *
+ * @package    Contao Sports
+ * @author     Nico Ziegler
+ * @link       https://github.com/gruenerPetz/contao_sports
+ * @license    LGPL
+ * @copyright  Nico Ziegler 2014
+ */
+
 $GLOBALS['TL_LANG']['MOD']['contao_sports'] = 'Contao Sports';
 
 $GLOBALS['TL_LANG']['MOD']['cs_leagues'][0] = 'Ligen';

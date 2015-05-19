@@ -1,13 +1,13 @@
 <?php
 
 /**
-* This is the language file (de) for tl_module.
+* This is the language file (de) for tl_cs_calendar.
 *
-* @package    nlshGuestbook
-* @author     Nils Heinold
-* @link       http://github.com/nlsh/nlsh_guestbook
-* @license    LGPL
-* @copyright  Nils Heinold 2013
+ * @package    Contao Sports
+ * @author     Nico Ziegler
+ * @link       https://github.com/gruenerPetz/contao_sports
+ * @license    LGPL
+ * @copyright  Nico Ziegler 2014
 */
 
 $GLOBALS['TL_LANG']['tl_cs_calendar']['new'][0] = 'Neuer Spielplan';

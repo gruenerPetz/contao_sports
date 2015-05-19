@@ -91,7 +91,7 @@ $GLOBALS['TL_DCA']['tl_cs_team'] = array
 	// Palettes
 	'palettes' => array
 	(
-		'default'                     => '{author_legend},name,homepage,league,city,country,info,singleSRC'
+		'default'                     => '{team_legend},name,league,city,country,homepage,info,singleSRC'
 	),
 
 	// Fields
@@ -112,14 +112,6 @@ $GLOBALS['TL_DCA']['tl_cs_team'] = array
 			'sorting'                 => true,
 			'inputType'               => 'text',
 			'eval'                    => array('mandatory'=>true, 'maxlength'=>255),
-			'sql'                     => "varchar(255) NOT NULL default ''"
-		),
-		'homepage' => array
-		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_cs_team']['homepage'],
-			'search'                  => true,
-			'inputType'               => 'text',
-			'eval'                    => array('rgxp'=>'url', 'maxlength'=>255),
 			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
 		'league' => array
@@ -148,6 +140,14 @@ $GLOBALS['TL_DCA']['tl_cs_team'] = array
 			'sorting'                 => true,
 			'inputType'               => 'text',
 			'eval'                    => array('maxlength'=>255),
+			'sql'                     => "varchar(255) NOT NULL default ''"
+		),
+		'homepage' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_cs_team']['homepage'],
+			'search'                  => true,
+			'inputType'               => 'text',
+			'eval'                    => array('rgxp'=>'url', 'maxlength'=>255),
 			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
 		'info' => array

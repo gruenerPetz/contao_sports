@@ -1,5 +1,16 @@
 <?php
 
+$GLOBALS['TL_LANG']['MOD']['contao_sports'] = 'Contao Sports';
+
+$GLOBALS['TL_LANG']['MOD']['cs_leagues'][0] = 'Ligen';
+$GLOBALS['TL_LANG']['MOD']['cs_leagues'][1] = 'Ligen verwalten';
+
+$GLOBALS['TL_LANG']['MOD']['cs_teams'][0] = 'Teams';
+$GLOBALS['TL_LANG']['MOD']['cs_teams'][1] = 'Teams verwalten';
+
+$GLOBALS['TL_LANG']['MOD']['cs_calendar'][0] = 'Spielpläne';
+$GLOBALS['TL_LANG']['MOD']['cs_calendar'][1] = 'Spielpläne verwalten und Events anlegen';
+
 $GLOBALS['TL_LANG']['CTE']['contao_sports'] = 'Contao Sports';
 
 $GLOBALS['TL_LANG']['CTE']['cs_athletes_list'][0] = 'Athleten';

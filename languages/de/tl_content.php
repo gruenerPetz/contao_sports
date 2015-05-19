@@ -21,11 +21,11 @@ $GLOBALS['TL_LANG']['tl_content']['cs_staff_position']['equipment'] = 'Equipment
 $GLOBALS['TL_LANG']['tl_content']['cs_calendar'][0] = 'Spielplan';
 $GLOBALS['TL_LANG']['tl_content']['cs_calendar'][1] = 'Bitte wählen Sie einen Spielplan aus.';
 
-$GLOBALS['TL_LANG']['tl_content']['cs_table_league'][0] = 'Liga';
-$GLOBALS['TL_LANG']['tl_content']['cs_table_league'][1] = 'Bitte wählen Sie die Liga aus.';
+$GLOBALS['TL_LANG']['tl_content']['cs_league'][0] = 'Liga';
+$GLOBALS['TL_LANG']['tl_content']['cs_league'][1] = 'Bitte wählen Sie die Liga aus.';
 
-$GLOBALS['TL_LANG']['tl_content']['cs_table_year'][0] = 'Jahr';
-$GLOBALS['TL_LANG']['tl_content']['cs_table_year'][1] = 'Bitte wählen Sie das Jahr aus.';
+$GLOBALS['TL_LANG']['tl_content']['cs_year'][0] = 'Jahr';
+$GLOBALS['TL_LANG']['tl_content']['cs_year'][1] = 'Bitte wählen Sie das Jahr aus.';
 
-$GLOBALS['TL_LANG']['tl_content']['cs_table_calendar'][0] = 'Spielplan';
-$GLOBALS['TL_LANG']['tl_content']['cs_table_calendar'][1] = 'Bitte wählen Sie den Spielplan aus.';
+$GLOBALS['TL_LANG']['tl_content']['cs_calendar'][0] = 'Spielplan';
+$GLOBALS['TL_LANG']['tl_content']['cs_calendar'][1] = 'Bitte wählen Sie den Spielplan aus.';

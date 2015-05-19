@@ -67,7 +67,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['cs_calendar'] = array
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['cs_league'] = array
 (
-	'label'                   => &$GLOBALS['TL_LANG']['tl_content']['cs_table_league'],
+	'label'                   => &$GLOBALS['TL_LANG']['tl_content']['cs_league'],
 	'inputType'               => 'select',
 	'foreignKey'              => 'tl_cs_league.name',
 	'sql'                     => "int(10) unsigned NOT NULL default '0'",
@@ -76,7 +76,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['cs_league'] = array
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['cs_year'] = array
 (
-	'label'                   => &$GLOBALS['TL_LANG']['tl_content']['cs_table_year'],
+	'label'                   => &$GLOBALS['TL_LANG']['tl_content']['cs_year'],
 	'default'                 => date('Y'),
 	'filter'                  => true,
 	'inputType'               => 'text',

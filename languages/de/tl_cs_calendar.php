@@ -19,6 +19,9 @@ $GLOBALS['TL_LANG']['tl_cs_calendar']['edit'][1] = 'Events ID %s bearbeiten';
 $GLOBALS['TL_LANG']['tl_cs_calendar']['editheader'][0] = 'Spielplan bearbeiten';
 $GLOBALS['TL_LANG']['tl_cs_calendar']['editheader'][1] = 'Spielplan ID %s bearbeiten';
 
+$GLOBALS['TL_LANG']['tl_cs_calendar']['editGroups'][0] = 'Gruppen bearbeiten';
+$GLOBALS['TL_LANG']['tl_cs_calendar']['editGroups'][1] = 'Gruppe ID %s bearbeiten';
+
 $GLOBALS['TL_LANG']['tl_cs_calendar']['delete'][0] = 'Spielplan löschen';
 $GLOBALS['TL_LANG']['tl_cs_calendar']['delete'][1] = 'Spielplan ID %s löschen';
 

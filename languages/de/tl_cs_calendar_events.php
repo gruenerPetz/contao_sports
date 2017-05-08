@@ -53,6 +53,9 @@ $GLOBALS['TL_LANG']['tl_cs_calendar_events']['startDate'][1] = 'Bitte geben Sie 
 $GLOBALS['TL_LANG']['tl_cs_calendar_events']['startTime'][0] = 'Startzeit';
 $GLOBALS['TL_LANG']['tl_cs_calendar_events']['startTime'][1] = 'Bitte geben Sie die Startzeit gemäß des globalen Zeitformats ein.';
 
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['groups'][0] = 'Gruppen';
+$GLOBALS['TL_LANG']['tl_cs_calendar_events']['groups'][1] = 'Bitte wählen Sie die Gruppen aus, in welcher das Event stattfinden soll.';
+
 $GLOBALS['TL_LANG']['tl_cs_calendar_events']['team_a'][0] = 'Heimmannschaft';
 $GLOBALS['TL_LANG']['tl_cs_calendar_events']['team_a'][1] = 'Bitte wählen Sie die Heimmannschaft aus.';
 

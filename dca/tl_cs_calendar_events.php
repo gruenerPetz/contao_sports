@@ -90,7 +90,7 @@ $GLOBALS['TL_DCA']['tl_cs_calendar_events'] = array
 	'palettes' => array
 	(
 		'__selector__'                => array('featured', 'further_information'),
-		'default'                     => '{author_legend},title,author,featured;{details_legend},location,startDate,startTime;{game_legend},team_a,team_b,result_team_a,result_team_b,finish;{further_information_legend},further_information;{publish_legend},published'
+		'default'                     => '{author_legend},title,author,featured;{details_legend},location,startDate,startTime;{game_legend},groups,team_a,team_b,result_team_a,result_team_b,finish;{further_information_legend},further_information;{publish_legend},published'
 	),
 	'subpalettes' => array
 	(
@@ -194,6 +194,17 @@ $GLOBALS['TL_DCA']['tl_cs_calendar_events'] = array
 			'eval'                    => array('rgxp'=>'time', 'mandatory'=>true, 'doNotCopy'=>true, 'tl_class'=>'w50'),
 			'sql'                     => "int(10) unsigned NULL"
 		),
+        'groups' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_cs_calendar_events']['groups'],
+            'exclude'                 => true,
+            'filter'                  => true,
+            'inputType'               => 'checkbox',
+            'foreignKey'              => 'tl_cs_calendar_groups.title',
+            'eval'                    => array('multiple'=>true),
+            'sql'                     => "blob NULL",
+            'relation'                => array('type'=>'belongsToMany', 'load'=>'lazy')
+        ),
 		'team_a' => array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_cs_calendar_events']['team_a'],

@@ -28,7 +28,7 @@ $GLOBALS['BE_MOD']['contao_sports'] = array
 	),
 	'cs_calendar' => array
 	(
-		'tables'     => array('tl_cs_calendar', 'tl_cs_calendar_events'),
+		'tables'     => array('tl_cs_calendar', 'tl_cs_calendar_events', 'tl_cs_calendar_groups'),
 		'icon'       => 'system/modules/contao_sports/assets/icons/calendar.png',
 	),
 );

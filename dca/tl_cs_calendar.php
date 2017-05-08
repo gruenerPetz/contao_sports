@@ -15,7 +15,7 @@ $GLOBALS['TL_DCA']['tl_cs_calendar'] = array
 	'config' => array
 	(
 		'dataContainer'               => 'Table',
-		'ctable'                      => array('tl_cs_calendar_events'),
+		'ctable'                      => array('tl_cs_calendar_events', 'tl_cs_calendar_groups'),
 		'switchToEdit'                => true,
 		'enableVersioning'            => true,
 		'onload_callback' => array
@@ -68,6 +68,12 @@ $GLOBALS['TL_DCA']['tl_cs_calendar'] = array
 				'href'                => 'act=edit',
 				'icon'                => 'header.gif',
 			),
+            'editGroups' => array
+            (
+                'label'               => &$GLOBALS['TL_LANG']['tl_cs_calendar']['editGroups'],
+                'href'                => 'table=tl_cs_calendar_groups',
+                'icon'                => 'system/modules/contao_sports/assets/icons/groups.png',
+            ),
 			'delete' => array
 			(
 				'label'               => &$GLOBALS['TL_LANG']['tl_cs_calendar']['delete'],

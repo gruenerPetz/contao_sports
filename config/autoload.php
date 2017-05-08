@@ -36,6 +36,7 @@ ClassLoader::addClasses(array
 	// Models
 	'ContaoSports\CsAthleteModel'        => 'system/modules/contao_sports/models/CsAthleteModel.php',
 	'ContaoSports\CsCalendarEventsModel' => 'system/modules/contao_sports/models/CsCalendarEventsModel.php',
+    'ContaoSports\CsCalendarGroupsModel' => 'system/modules/contao_sports/models/CsCalendarGroupsModel.php',
 	'ContaoSports\CsCalendarModel'       => 'system/modules/contao_sports/models/CsCalendarModel.php',
 	'ContaoSports\CsStaffModel'          => 'system/modules/contao_sports/models/CsStaffModel.php',
 	'ContaoSports\CsTeamModel'           => 'system/modules/contao_sports/models/CsTeamModel.php',

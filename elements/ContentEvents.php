@@ -35,27 +35,47 @@ abstract class ContentEvents extends ContentElement
 	 */
 	protected function compile()
 	{
-		$objEventsCollection = $this->getEventsCollection();
+        $arrResult = array();
 
-		$arrResult = array();
+        $objGroupsCollection = CsCalendarGroupsModel::findBy(array('pid=?'), $this->cs_calendar, array(
+            'order' => 'title ASC'
+        ));
 
-		if ($objEventsCollection)
-		{
-			$intHeaderCount = 0;
+        $objEventsCollection = $this->getEventsCollection();
 
-			while ($objEventsCollection->next())
-			{
-				$arrResult[] = $this->parseEvent($objEventsCollection, (($intHeaderCount%2) === 0) ? 'even' : 'odd');
-				$intHeaderCount++;
-			}
-		}
+        if ($objGroupsCollection && $objEventsCollection)
+        {
+            while ($objGroupsCollection->next())
+            {
+                $arrEvents = [];
 
-		$this->Template->events = $arrResult;
+                $intHeaderCount = 0;
+
+                while ($objEventsCollection->next())
+                {
+                    if (in_array($objGroupsCollection->id, unserialize($objEventsCollection->groups)))
+                    {
+                        $arrEvents[] = $this->parseEvent($objEventsCollection, (($intHeaderCount%2) === 0) ? 'even' : 'odd');
+                        $intHeaderCount++;
+                    }
+                }
+
+                $arrResult[] = [
+                    'title' => $objGroupsCollection->title,
+                    'events' => $arrEvents,
+                ];
+
+                $objEventsCollection->reset();
+            }
+        }
+
+		$this->Template->groups = $arrResult;
 	}
 
 
 	/**
-	 * @param Collection $objEvents
+	 * @param Collection $objEventsCollection
+     * @param string $strClass
 	 * @return array
 	 */
 	protected function parseEvent(Collection $objEventsCollection, $strClass)
@@ -78,6 +98,10 @@ abstract class ContentEvents extends ContentElement
 	}
 
 
+    /**
+     * @param $varPk
+     * @return array
+     */
 	protected function parseTeamByPk($varPk)
 	{
 		$objTeam = CsTeamModel::findByPk($varPk);

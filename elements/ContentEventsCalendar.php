@@ -14,13 +14,13 @@ namespace ContaoSports;
 
 class ContentEventsCalendar extends ContentEvents
 {
-	/**
-	 * @return \Contao\Model\Collection
-	 */
+    /**
+     * @return \Contao\Model\Collection
+     */
 	protected function getEventsCollection()
 	{
-		return CsCalendarEventsModel::findBy(array('pid=? AND published=1'), $this->cs_calendar, array(
-			'order' => 'startTime ASC'
-		));
+        return CsCalendarEventsModel::findBy(array('pid=? AND published=1'), $this->cs_calendar, array(
+            'order' => 'startTime ASC'
+        ));
 	}
 }

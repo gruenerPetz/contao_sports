@@ -6,6 +6,8 @@
 <<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
 <?php endif; ?>
 
+<?php foreach ($this->groups AS $arrGroup): ?>
+<h2><?= $arrGroup['title']; ?></h2>
 <table>
   <thead>
   <tr>
@@ -17,7 +19,7 @@
   </tr>
   </thead>
   <tbody>
-  <?php foreach ($this->events AS $arrEvent): ?>
+  <?php foreach ($arrGroup['events'] AS $arrEvent): ?>
   <?php if($arrEvent['featured']): ?>
   <tr>
     <td colspan="7"></td>
@@ -55,6 +57,7 @@
   <?php endforeach; ?>
   </tbody>
 </table>
+<?php endforeach; ?>
 
 </div>
 <!-- indexer::continue -->

@@ -201,7 +201,7 @@ $GLOBALS['TL_DCA']['tl_cs_calendar_events'] = array
             'filter'                  => true,
             'inputType'               => 'checkbox',
             'options_callback'        => array('tl_cs_calendar_events', 'getGroups'),
-//            'foreignKey'              => 'tl_cs_calendar_groups.title',
+            'foreignKey'              => 'tl_cs_calendar_groups.title',
             'eval'                    => array('multiple'=>true),
             'sql'                     => "blob NULL",
             'relation'                => array('type'=>'belongsToMany', 'load'=>'lazy')

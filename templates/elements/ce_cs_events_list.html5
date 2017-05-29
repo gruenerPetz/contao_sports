@@ -51,7 +51,12 @@
     <td><img src="<?php echo $arrEvent['teamB']['src']; ?>" title="<?php echo $errEvent['teamB']['name']?>" /></td>
     <td><?php echo $arrEvent['teamB']['name']; ?></td>
     <td>
-      <?php echo $arrEvent['location']; ?>
+	  <?php if(empty($arrEvent['location'])):
+	  			$location=$arrEvent['teamA']['location_short']; 
+			else: 
+				$location=$arrEvent['location']; 
+			endif; ?>
+	  <?php echo $location; ?>
     </td>
   </tr>
   <?php endforeach; ?>

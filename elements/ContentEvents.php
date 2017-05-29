@@ -108,6 +108,8 @@ abstract class ContentEvents extends ContentElement
 
 		$arrResult = array(
 			'name' => $objTeam->name,
+			'location' => $objTeam->location,
+			'location_short' => $objTeam->location_short,
 			'city' => $objTeam->city,
 			'country' => $objTeam->country,
 			'singleSRC' => NULL

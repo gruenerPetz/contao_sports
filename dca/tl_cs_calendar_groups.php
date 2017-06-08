@@ -54,14 +54,8 @@ $GLOBALS['TL_DCA']['tl_cs_calendar_groups'] = array
 			'edit' => array
 			(
 				'label'               => &$GLOBALS['TL_LANG']['tl_cs_calendar']['edit'],
-				'href'                => 'table=tl_cs_calendar_events',
+                'href'                => 'act=edit',
 				'icon'                => 'edit.gif',
-			),
-			'editheader' => array
-			(
-				'label'               => &$GLOBALS['TL_LANG']['tl_cs_calendar']['editheader'],
-				'href'                => 'act=edit',
-				'icon'                => 'header.gif',
 			),
 			'delete' => array
 			(
@@ -74,7 +68,7 @@ $GLOBALS['TL_DCA']['tl_cs_calendar_groups'] = array
 	),
 	'palettes' => array
 	(
-		'default'                     => '{author_legend},title,alias,author;{game_legend}, league, year'
+		'default'                     => '{author_legend},title,teams'
 	),
 	'fields' => array
 	(
@@ -100,5 +94,17 @@ $GLOBALS['TL_DCA']['tl_cs_calendar_groups'] = array
 			'eval'                    => array('mandatory'=>true, 'maxlength'=>255),
 			'sql'                     => "varchar(255) NOT NULL default ''",
 		),
+        'teams' => array
+        (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_cs_calendar_groups']['teams'],
+            'exclude'                 => true,
+            'filter'                  => true,
+            'inputType'               => 'checkbox',
+//            'options_callback'        => array('tl_cs_calendar_events', 'getGroups'),
+            'foreignKey'              => 'tl_cs_team.name',
+            'eval'                    => array('multiple'=>true),
+            'sql'                     => "blob NULL",
+            'relation'                => array('type'=>'belongsToMany', 'load'=>'lazy')
+        ),
 	),
 );

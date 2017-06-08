@@ -6,15 +6,8 @@
     <<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
   <?php endif; ?>
 
-
-<?php
-/*
-Vorgehen:
-- alle Teams in ein Array => ContentTable.php
-- alle Spiele in ein Array => ContentTable.php
-*/
-?>
-
+  <?php foreach ($this->table AS $arrGroup): ?>
+  <h2><?= $arrGroup['title']; ?></h2>
   <table>
     <thead>
       <tr>
@@ -27,7 +20,7 @@ Vorgehen:
       </tr>
     </thead>
     <tbody>
-      <?php foreach ($this->table AS $key => $arrTable): ?>
+      <?php foreach ($arrGroup['table'] AS $key => $arrTable): ?>
 		  <tr class="<?php (($key%2) === 0) ? print('even') : print('odd'); ?>">
         <td><?php echo ++$key; ?></td>
         <td><?php echo $arrTable['name']; ?></td>
@@ -39,6 +32,8 @@ Vorgehen:
       <?php endforeach; ?>
     </tbody>
   </table>
+
+  <?php endforeach; ?>
 
 </div>
 <!-- indexer::continue -->

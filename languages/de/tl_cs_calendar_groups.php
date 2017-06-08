@@ -23,3 +23,6 @@ $GLOBALS['TL_LANG']['tl_cs_calendar_groups']['author_legend'] = 'Titel';
  */
 $GLOBALS['TL_LANG']['tl_cs_calendar_groups']['title'][0] = 'Titel';
 $GLOBALS['TL_LANG']['tl_cs_calendar_groups']['title'][1] = 'Bitte geben Sie den Gruppen-Titel ein.';
+
+$GLOBALS['TL_LANG']['tl_cs_calendar_groups']['teams'][0] = 'Teams';
+$GLOBALS['TL_LANG']['tl_cs_calendar_groups']['teams'][1] = 'Bitte wählen Sie die Teams für die Gruppe.';

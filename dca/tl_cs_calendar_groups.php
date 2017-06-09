@@ -100,11 +100,40 @@ $GLOBALS['TL_DCA']['tl_cs_calendar_groups'] = array
             'exclude'                 => true,
             'filter'                  => true,
             'inputType'               => 'checkbox',
-//            'options_callback'        => array('tl_cs_calendar_events', 'getGroups'),
-            'foreignKey'              => 'tl_cs_team.name',
+            'options_callback'        => array('tl_cs_calendar_groups', 'getTeams'),
+//            'foreignKey'              => 'tl_cs_team.name',
             'eval'                    => array('multiple'=>true),
             'sql'                     => "blob NULL",
             'relation'                => array('type'=>'belongsToMany', 'load'=>'lazy')
         ),
 	),
 );
+
+class tl_cs_calendar_groups extends Backend
+{
+    public function getTeams()
+    {
+        $arrTeams = array();
+        $arrLeagues = array();
+        if (!is_array($this->User->cs_leagues) || empty($this->User->cs_leagues))
+        {
+            /* @var $objTeams \Contao\Database\Mysqli\Result */
+            $objTeams = $this->Database->prepare('SELECT id, name, league FROM tl_cs_team ORDER BY name')->execute();
+        }
+        else
+        {
+            /* @var $objTeams \Contao\Database\Mysqli\Result */
+            $objTeams = $this->Database->prepare('SELECT id, name, league FROM tl_cs_team WHERE league IN ('.implode(',', $this->User->cs_leagues).' ORDER BY name)')->execute();
+        }
+        $objLeagues = $this->Database->prepare('SELECT id, name FROM tl_cs_league')->execute();
+        foreach ($objLeagues->fetchAllAssoc() AS $objLeagues)
+        {
+            $arrLeagues[$objLeagues['id']] = $objLeagues['name'];
+        }
+        foreach ($objTeams->fetchAllAssoc() AS $objTeams)
+        {
+            $arrTeams[$objTeams['id']] = $objTeams['name']." - ".$arrLeagues[$objTeams['league']];
+        }
+        return $arrTeams;
+    }
+}

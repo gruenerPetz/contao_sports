@@ -112,6 +112,7 @@ abstract class ContentEvents extends ContentElement
 			'location_short' => $objTeam->location_short,
 			'city' => $objTeam->city,
 			'country' => $objTeam->country,
+			'homepage' => $objTeam->homepage,
 			'singleSRC' => NULL
 		);
 
